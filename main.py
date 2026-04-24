@@ -374,7 +374,22 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Operation cancelled.", reply_markup=ReplyKeyboardRemove())
     return ConversationHandler.END
 
+from flask import Flask
+import threading
+
+app = Flask('')
+
+@app.route('/')
+def home():
+    return "I'm alive"
+
+def run_health_check():
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
+
 def main():
+    # Start health check server in a separate thread for Render
+    threading.Thread(target=run_health_check, daemon=True).start()
+    
     application = Application.builder().token(BOT_TOKEN).build()
 
     # Customer Conversation
