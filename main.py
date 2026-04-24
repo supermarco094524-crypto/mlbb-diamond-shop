@@ -28,7 +28,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Configuration
-BOT_TOKEN = "8701566886:AAFJ1UVltqDhCRw6fCaR3JAD4EdcYVgdImA"
+BOT_TOKEN = "8222672482:AAFOqy7ySHmSY_9iA6jl0bkMhugPsSmOeHU"
 ADMIN_CHAT_ID = 7617135270
 API_ENDPOINT = "https://sacoliofficial.com/api/api/games/check_region"
 
